@@ -1,7 +1,7 @@
 COSC 311 Assignment #1: Secure Messaging
 
 
-NAMES: [Full Names of both partners]
+NAMES: Mia McDuffie, Andrew Xie
 
 ______________________________________________________________________________________
 
@@ -9,21 +9,48 @@ Question #1
 Describe the protocol you agreed upon with your classmates in English (no code) in
 enough detail that someone else could implement it. 
 
-[Your answer here]
+WHAT THE CLASS DISCUSSED:
+- AES that involves json
+- EAX mode for the cipher
+- Putting it in ciphertext, nonce and then tag order
+- Using a hybrid approach where they swap public keys
+
+
+WHAT WE DID:
+For the key exchange, we agreed to use Diffie-Hellman with two shared keys. 
+
+When the server sends the message, we used the second shared key to encode 
+the message. We then truncated the key to be 16 bytes. When the client sends the
+message, we used the first shared key to send the message and truncated the key to be 16 bytes.
+For both keys, we encoded it by ("ISO-8859-1"). For both the client and the server, we 
+used a AES cipher and made it with their respective keys. Finally, we then concatenated
+the user input in this order: ciphertext, nonce, and tag.
+
+When we process the received message, we separated the ciphertext and nonce. 
+When is the server receiving the message, we used the first shared key and truncate 
+it to the first 16 bytes. When its the client receiving the message, we used the second
+shared key and truncate it to the first 16 bytes. For both the server and client,
+we used their respective keu and nonce to create the cipher with AES. Finally, we
+decrypted the message into plaintext by using the cipher and encoded it. When then return
+the plaintext decoded by ("ISO-8859-1").
 
 ______________________________________________________________________________________
 
 Question #2
 Describe two pros of the protocol you agreed upon with your classmates.
 
-[Your answer here]
+First: We don't have to worry about public/private key pairs and swapping them
+
+Second: Defends confidentiality and integrity 
 
 ______________________________________________________________________________________
 
 Question #3
 Describe two cons of the protocol you agreed upon with your classmates.
 
-[Your answer here]
+First: Their is a chance that the sent message does not get decrypted correctly.
+
+Second: Its sustainable to Man in the Middle attacks
 
 ______________________________________________________________________________________
 
@@ -32,7 +59,11 @@ Thinking like a defender, what/who do you have to trust in order to be confident
 that messages sent using your SecureMessaging.py cannot be obtained by an adversary and why? 
 Describe at least THREE entities you must trust.  
 
-[Your answer here]
+First: PyCryptodome library to generate all needed random numbers
+
+Second: pyDH library to implement Diffie-Hellman key exchange
+
+Third: AES to create the cipher
 
 ______________________________________________________________________________________
 
@@ -41,21 +72,25 @@ Thinking like an attacker, how might an adversary still compromise the confident
 integrity of a message sent to a classmate using your SecureMessaging.py? 
 Describe at least TWO potential attacks. 
 
-[Your answer here]
+First: Using a man in the middle attack 
+
+Second: An attacker takes either the clients or servers public keys and identity
 
 ______________________________________________________________________________________
 
 Question #6 (ungraded)
 How did you divide the work between partners? (Put N/A if worked alone)
 
-[Your answer here]
+So Mia did the majority of the coding. Andrew helped from time to time, mainly
+with creating the outline on what needed to code.
 
 ______________________________________________________________________________________
 
 Question #7 (optional, ungraded)
 Did you use code snippets from anywhere online that you need to cite?
 
-[Your answer here]
+https://pycryptodome.readthedocs.io/en/latest/src/examples.html
+https://github.com/amiralis/pyDH
 
 ______________________________________________________________________________________
 
