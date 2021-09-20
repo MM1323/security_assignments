@@ -93,7 +93,7 @@ class SecureMessage:
         
 
         self.s.send((str(cs_pubkey)).encode("ISO-8859-1")[:SEND_BUFFER_SIZE]) # takes strings and turns it to bytes 
-        their_public  = int(self.s.recv(SEND_BUFFER_SIZE).decode("ISO-8859-1")) #telling how much to recieve #takes bytes and turns it to strings
+        their_public  = int(self.s.recv(SEND_BUFFER_SIZE).decode("ISO-8859-1")) #telling how much to receive #takes bytes and turns it to strings
         self.shared_key = client_to_server.gen_shared_key(their_public) #[:32]
         
         
