@@ -101,6 +101,13 @@ class SecureMessage:
         their_public_2 = int(self.s.recv(SEND_BUFFER_SIZE).decode("ISO-8859-1"))
         self.shared_key_2 = server_to_client.gen_shared_key(their_public_2) #[:32] #take the first 32 bytes or 16
 
+        #print(self.shared_key)
+
+        #At secret key stage - Any more steps?
+
+        
+    
+    #msg + split + nonce + split + tag
 
     def process_user_input(self, user_input):
         """TODO: Add authentication and encryption"""
@@ -122,6 +129,8 @@ class SecureMessage:
 
     def process_received_message(self, recv_msg):
         # """TODO: Check message integrity and decrypt"""
+
+        # #Check message integrity (Should HMAC be used here and how?)
 
         # #unjumble recv_msg 
         marker1 = -1
@@ -146,14 +155,10 @@ class SecureMessage:
             key = self.shared_key_2.encode("ISO-8859-1")
             key = key[0:16]
             cipher = AES.new(key, AES.MODE_EAX, nonce)
-        plaintext = cipher.decrypt(recv_msg[0: marker1].encode("ISO-8859-1"))
+        plaintext = cipher.decrypt(recv_msg[0: marker1].encode("ISO-8859-1"))  # recv_msg?
+        
 
-        try:
-            cipher.verify(recv_msg[marker2+1:].encode("ISO-8859-1"))
-        except ValueError:
-            print("MessageModificationDetected")   
-
-        return plaintext.decode("ISO-8859-1") 
+        return plaintext.decode("ISO-8859-1") #Is this correct return value?
 
 
 def main():
