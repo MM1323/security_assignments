@@ -16,3 +16,17 @@ and you will able to detect any unauthorized message modifications.
 It is a bad idea to write your own cryptograhy primitives unless you are an expert ("Don’t roll
 your own crypto!"), so you will be using the publicly available Python libraries PyCryptodome and
 pyDH.
+
+## Assignment 2: Network Intrusion Detection ##
+
+Network operators actively monitor their networks to protect against various intrusion attacks.
+Network attackers often perform random "portscans" of IP addresses to find vulnerable machines.
+Network Intrusion Detection Systems (NIDS) attempt to detect and flag such behavior as malicious.
+In this assignment, you will analyze NetFlow network measurement data from a campus border
+router to identify potentially malicious traffic sent to the campus network. You will then simulate
+an online algorithm for identifying malicious remote hosts.
+
+### Objectives ###
+• Gain familiarity with network measurement data
+• Implement basic approaches for identifying malicious traffic
+• Reason about the network security threats faced by universities
