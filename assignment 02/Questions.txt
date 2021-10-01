@@ -1,0 +1,113 @@
+COSC 311 Assignment #2: Network Intrusion Detection
+
+
+NAMES: Caroline Ferri and Mia McDuffie
+
+_______________________________________________________________________________________________
+
+Question #1
+Why is it necessary to identify malicious hosts in order to stop port scans in real traffic?
+Why isn't identifying SYN-only flows sufficient?
+
+One option for a DOS attack is through a TCP SYN flood attack. In this attack the attacker sends
+Many SYN packets to the server, exhausting the server's TCP buffer with half-open connections.
+Therefore, we want to identify malicious hosts by scanning for hosts either sending packets to
+known bad ports or sending many SYN-only packets. When an attacker consistently sends SYN packets
+To the server, the server engages in the TCP "three-way handshake" and opens connection with the
+SYN packet. This results in many half-open connections as the attacker continues to send SYN packets
+But does not respond to the server's ACK's, leaving the server's resources exhausted with half-
+Open connections. However, there is an issue with identifying and stopping SYN-only flows. By
+Blocking hosts sending syn-only packets or packets to known bad ports, we are preventing potential
+TCP SYN flood attacks. However, just because the packet is SYN-only does not necessarily mean the
+client is malicious. While the server can filter and block certain packets based on unexpected
+behaviors such as unusual high traffic volume, high rates of TCP SYN packets, or unexpected
+destination addresses, there is no guarantee that the host the server is blocking is truly malicious
+rather than the client acting out of character. Therefore, identifying SYN-only flows doesn't
+Guarantee that the server is blocking only malicious hosts.
+
+_______________________________________________________________________________________________
+
+Question #2
+Choose 2 IP addresses in the set of "malicious hosts" and see what you can find out about them
+using the "whois" command and searching online. Report your most interesting findings below.
+
+The two IP's that researched came from companies that come from places like Russia, China, and the
+Philippines which have questionable reliance in history. Also, both have an aribitaray location and
+fake name listed when doing the whois on the command line. This makes this IP very suspcious since
+you really don't know who has that IP address.
+
+________________________________________________________________________________________________
+
+Question #3
+A threshold of 100 is the default for the Bro algorithm.
+Given the results in your sensitivity curve plot, why do you think this value was chosen?
+What are the pros and cons of choosing a higher or lower threshold?
+
+The plotted sensitivity curve shows exponential decay. This suggests that the initial increase
+In threshold heavily affects the number of hosts being blocked. Once the threshold is set past a
+certain value, the increase in blocked hosts will plateau. A lower threshold in the bro algorithm
+Means that hosts will be blocked for a smaller amount of suspicious activity (sending syn-only packets
+And sending packets to not known good ports to internal ip's). The algorithm with a lower thresholds
+could be unintentionally blocking Benign hosts that occasionally act in a suspicious manner. The
+higher the threshold, the more likely it is that the host is truly malicious as they're sending
+potentially malicious packets to more and more internal ip addresses. Given the sensitivity plot,
+the amount of hosts being blocked starts plateauing around 20. From around 20 to 80 the number of
+blocked hosts decreases slightly but continues plateau and stabilize. Once the threshold hits 100
+there appears to be little, if any change in the number of hosts blocked. Therefore, 100 is a good
+value to choose as it appears to be the lowest threshold value that is blocking consistently the
+approximately same number of hosts sending to over 100 internal ip's. While a threshold of 100 seems
+Like a reasonable threshold for the csv file we were given, for a large internal organization, a
+threshold of 100 might not be as reasonable a threshold to detect a malicious host. Similarly,
+for a small organization, a threshold of 100 might be too large to properly detect malicious hosts.
+I believe that the threshold value should reflect both the amount of internal ip addresses there
+are in an organization and the security needs of that organization (if it needs to be
+more conservative in blocking hosts or not).
+
+________________________________________________________________________________________________
+
+Question #4
+A threshold of 100 would have blocked ~115 hosts (if your implementation didn't,
+you should check it for bugs). This is many fewer hosts than the number of malicious hosts
+found in Part 3. What differences between the Bro algorithm and the method used in Part 3
+caused this difference? Which method do you think is more likely to be accurate? Why?
+
+While both parts of the homework block malicious hosts, they have separate filtering systems. In
+Part 3 we are blocking any external IP address that either sends a SYN-only packet, or any packet
+That is sent to a known bad port. Part 3 writes any IP address that violates this filtering system
+As malicious hosts. The bro algorithm follows a similar filtration system, it notes the external ip
+addresses that send syn-only packets or sends packets to any port other than the listed "good" ports.
+However, the bro algorithm doesn't mark the host as malicious when it first finds the external IP
+address acting suspicious. Instead, it only marks the host as malicious when it finds that the external
+IP address is sending suspicious packets to multiple internal ip addresses. When the number of internal
+Ip addresses per host IP address reaches a certain threshold it then blocks the host and lists it
+As malicious. As discussed in question 1, there are cons to server filtration. The filter seen in
+Part 3 marks hosts as malicious the first time they send potentially malicious packets. The rigid
+structure of this filter leaves the potential for benign hosts to be blocked simply because
+They acted in a out of character. Therefore, to reduce the chance of blocking benign hosts, the
+bro algorithm takes the filter of part 3 and adds to it. Rather than block immediately, the bro algorithm
+will only mark an IP address as malicious if it consistently sends syn-only packets or sends packets
+to not known good ports. After a certain threshold of destination ip addresses is reached, the
+host is finally deemed malicious. This technique reduces the chances of accidentally marking benign
+hosts as malicious as it blocks hosts that continue to act in a suspicious manner to multiple internal
+ip's rather than immediately blocking an External ip the first time its behavior is potentially
+malicious.
+_________________________________________________________________________________________________
+
+Question #5 (ungraded)
+How did you divide the work between partners? (Put N/A if worked alone)
+
+[Your answer here]
+
+______________________________________________________________________________________
+
+Question #6 (optional, ungraded)
+Did you use code snippets from anywhere online that you need to cite?
+
+[Your answer here]
+
+______________________________________________________________________________________
+
+Question #7 (optional, ungraded)
+Do you have any suggestions for improving this assignment in the future?
+
+[Your answer here]

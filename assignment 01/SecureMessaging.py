@@ -13,7 +13,6 @@ import socket
 import os
 from threading import Thread
 
-import Crypto
 import pyDH
 
 from Crypto.Cipher import AES
