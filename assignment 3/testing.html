@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+    <script> 
+        // alert(1);
+        function applyDefenses() {
+            $('#location').val(document.location);
+            $('#setdefenses').submit();
+        }
+        $(function () {
+            $('#xssdefense').change(applyDefenses);
+            $('#csrfdefense').change(applyDefenses);
+        });
+    
+    </script>
+
+    <title>{{title}}</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script type="module" src="/path/to/js.cookie.mjs"></script>
+    <script nomodule defer src="/path/to/js.cookie.js"></script>
+
+</head>
+
+<body>
+    <div class="col-xs-4">
+    
+        <!-- Login / create account form -->
+        <div class="well">
+            <form action="./login" method="post" class="form-inline">{{!v.csrfcode}}
+                <p>Log in or create an account.</p>
+                <div class="form-group form-space">
+                    <input id="username" name="username" type="text" placeholder="Username" required class="form-control" value="attacker">
+                </div>
+                <div class="form-group form-space">
+                    <input id="userpass" name="password" type="password" placeholder="Password" value="URpwn3d" required
+                        class="form-control">
+                </div>
+                <div class="form-group form-more-space">
+                    <button id="log-in-btn" type="submit" formaction="./login" class="btn btn-default">Login</button>
+                    <button id="new-account-btn" type="submit" formaction="./create" class="btn btn-default">Create
+                        Account</button>
+                </div>
+            </form>
+        </div>
+    
+    </div>
+    
+</body>
+
+
+
+</html>
