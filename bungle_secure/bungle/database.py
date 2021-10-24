@@ -3,6 +3,10 @@ from bottle import FormsDict
 from hashlib import md5
 import os
 import time
+from argon2 import PasswordHasher
+
+ph = PasswordHasher()
+hashed_password = ""
 
 def create():
     if not os.path.exists("bungle.db"):
@@ -13,11 +17,15 @@ def create():
         db.commit()
 
 def connect():
-    return mdb.connect("bungle.db");
+    return mdb.connect("bungle.db")
 
 def createUser(username, password):
     db_rw = connect()
     cur = db_rw.cursor()
+    global hashed_password
+    hashed_password = ph.hash(password)
+    print(hashed_password)
+    print("HI 1")
     cur.execute("INSERT INTO users (username, password) VALUES(?, ?)", (username, password))
     db_rw.commit()
 
@@ -25,8 +33,20 @@ def validateUser(username, password):
     db_rw = connect()
     cur = db_rw.cursor()
     cur.execute("SELECT * FROM users WHERE username='{}' AND password='{}'".format(username, password))
-    if len(cur.fetchall()) < 1:
+    if not(len(cur.fetchall()) < 1):
+        print("HI 2")
+        if (ph.verify(hashed_password, password) == False):
+            print("HIT 3")
+            return False
+    else:
         return False
+    # if len(cur.fetchall()) < 1:
+    #     print("HI 2")
+    #     return False
+    # if (ph.verify(hashed_password, password) == False):
+    #     print("HI 3")
+    #     return False
+
     return True
 
 def fetchUser(username):

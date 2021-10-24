@@ -229,6 +229,10 @@ Additional Questions
 
 		---4---
 
+		https://argon2-cffi.readthedocs.io/en/stable/
+		https://argon2-cffi.readthedocs.io/en/stable/
+		https://argon2-cffi.readthedocs.io/en/stable/api.html#argon2.exceptions.InvalidHash
+
 	Q3 (optional, ungraded). Do you have any suggestions for improving this assignment in the future?
 
 		[Your answer here]
