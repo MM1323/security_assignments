@@ -26,20 +26,36 @@ def createUser(username, password):
     hashed_password = ph.hash(password)
     print(hashed_password)
     print("HI 1")
-    cur.execute("INSERT INTO users (username, password) VALUES(?, ?)", (username, password))
+    cur.execute("INSERT INTO users (username, password) VALUES(?, ?)", (username, hashed_password))
     db_rw.commit()
 
 def validateUser(username, password):
     db_rw = connect()
     cur = db_rw.cursor()
-    cur.execute("SELECT * FROM users WHERE username='{}' AND password='{}'".format(username, password))
+    print("HIT")
+    #slat 
+    cur.execute("SELECT * FROM users WHERE username='{}'".format(username))
+    print(cur.fetchall())
+    return True
+    if (ph.verify(hashed_password, password) == False):
+        print("HIT 3")
+        return False
+    else:
+        return True
+    
     if not(len(cur.fetchall()) < 1):
         print("HI 2")
-        if (ph.verify(hashed_password, password) == False):
-            print("HIT 3")
-            return False
+
     else:
         return False
+    # if not(len(cur.fetchall()) < 1):
+    #     print("HI 2")
+    #     if (ph.verify(hashed_password, password) == False):
+    #         print("HIT 3")
+    #         return False
+    # else:
+    #     return False
+    ###############
     # if len(cur.fetchall()) < 1:
     #     print("HI 2")
     #     return False
