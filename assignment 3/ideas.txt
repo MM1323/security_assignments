@@ -1,0 +1,18 @@
+		<script>
+            window.onload = function(){ 
+                var last_search = document.getElementsByClassName("history-item")[1].innerHTML;
+                alert(last_search);
+            };
+         </script>
+
+        <script>
+			window.onload = function(){ 
+                var cookie = document.cookie.split(';')[1].split('=')[1];
+                alert(cookie);
+			};
+		</script>
+
+        <script> window.onload = function(){ alert('HI');}; </script>
+
+
+

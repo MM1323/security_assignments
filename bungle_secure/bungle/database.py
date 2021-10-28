@@ -6,7 +6,7 @@ import time
 from argon2 import PasswordHasher
 
 ph = PasswordHasher()
-hashed_password = ""
+# hashed_password = ""
 
 def create():
     if not os.path.exists("bungle.db"):
@@ -22,7 +22,6 @@ def connect():
 def createUser(username, password):
     db_rw = connect()
     cur = db_rw.cursor()
-    global hashed_password
     hashed_password = ph.hash(password)
     print(hashed_password)
     print("HI 1")
@@ -32,8 +31,10 @@ def createUser(username, password):
 def validateUser(username, password):
     db_rw = connect()
     cur = db_rw.cursor()
-    print("HIT")
+    print("HIT 2")
     #slat 
+    hashed_password_check = ph.hash(password)
+    print(hashed_password_check)
     cur.execute("SELECT * FROM users WHERE username='{}'".format(username))
     print(cur.fetchall())
     return True

