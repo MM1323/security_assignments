@@ -1,1 +1,3 @@
 .DS_Store
+bungle_secure/bungle/bungle.db
+bungle_secure/bungle/__pycache__/database.cpython-39.pyc
