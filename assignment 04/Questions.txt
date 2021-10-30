@@ -1,0 +1,88 @@
+COSC 311 Assignment #4: Web Tracking
+
+
+NAMES: [Full Names of both partners]
+
+_______________________________________________________________________________________________
+
+Question #1
+Although you used a new browser for this assignment, does that completely prevent trackers from 
+associating your browsing activity in the assignment from your normal everyday browsing? 
+Justify your answer with technical details.
+
+[Your answer here]
+
+_______________________________________________________________________________________________
+
+Question #2 
+How many different domains did you visit while browsing?
+
+[Your answer here]
+
+_______________________________________________________________________________________________
+
+Question #3
+How many total cookies did you collect?
+
+FIRST-party: [Your answer here]
+
+THIRD-party: [Your answer here]
+
+_______________________________________________________________________________________________
+
+Question #4
+What 3 domains were responsible for the most FIRST-party cookies you collected?
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #5
+What 3 domains were responsible for the most THIRD-party cookies you collected?
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #6
+Just from looking at the domains of the cookies you collected, what do 
+you think a tracking company could learn about your demographics and/or interests?
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #7
+Find someone else (individual or partners) working on this assignment and compare the number 
+and domains of the first- and third-party cookies you collected. Complete the following:
+
+Who did you discuss with: [Your answer here]
+
+How many first-party cookies did they collect? [Your answer here]
+How many third-party cookies did they collect? [Your answer here]
+
+How would you explain the differences and/or similarities in the number and domains of cookies 
+you collected based on a comparison of your browsing activities?
+
+[Your answer here]
+
+_________________________________________________________________________________________________
+
+Question #8 (ungraded)
+How did you divide the work between partners? (Put N/A if worked alone)
+
+[Your answer here]
+
+______________________________________________________________________________________
+
+Question #9 (optional, ungraded)
+Did you use code snippets from anywhere online that you need to cite?
+
+[Your answer here]
+
+______________________________________________________________________________________
+
+Question #10 (optional, ungraded) 
+Do you have any suggestions for improving this assignment in the future?
+
+[Your answer here]
