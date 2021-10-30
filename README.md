@@ -30,3 +30,19 @@ an online algorithm for identifying malicious remote hosts.
 • Gain familiarity with network measurement data
 • Implement basic approaches for identifying malicious traffic
 • Reason about the network security threats faced by universities
+
+## Assignment 3: Web Security ##
+
+A startup named BUNGLE! is about to launch its first product: a web search engine that accepts logins
+and tracks users’ search histories. However, their investors are nervous about security problems.
+Unlike the Bunglers who developed the site, you took COSC 311, so the investors have hired you to
+perform a security evaluation before the site goes live to the public.
+
+Your first task will be to attack the BUNGLE! website by exploiting three common classes of
+vulnerabilities: cross-site scripting (XSS), cross-site request forgery (CSRF), and SQL injection.
+You will need to exploit these vulnerabilities with various flawed defenses in place. Understanding
+how these attacks work will help you better defend your own web applications.
+
+Your second task will be to modify the source code of the BUNGLE! website to defend against
+password breaches and some of the attacks you have demonstrated. Protect BUNGLE!. . . protect the
+world!
