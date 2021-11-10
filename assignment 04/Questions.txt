@@ -78,7 +78,10 @@ ________________________________________________________________________________
 Question #9 (optional, ungraded)
 Did you use code snippets from anywhere online that you need to cite?
 
-[Your answer here]
+https://benalexkeen.com/bar-charts-in-matplotlib/
+https://www.w3schools.com/python/numpy/numpy_random.asp
+https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tolist.html
+https://www.geeksforgeeks.org/read-json-file-using-python/
 
 ______________________________________________________________________________________
 
