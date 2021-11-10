@@ -46,3 +46,24 @@ how these attacks work will help you better defend your own web applications.
 Your second task will be to modify the source code of the BUNGLE! website to defend against
 password breaches and some of the attacks you have demonstrated. Protect BUNGLE!. . . protect the
 world!
+
+## Assignment 4: Web Tracking ##
+
+Internet tracking involves the use of many web technologies, including cookies, local data storage,
+and browser fingerprinting, to build profiles of users’ Internet habits. These techniques allow data
+aggregation companies to make sophisticated inferences about the interests and personalities of
+individuals, even if they do not know these individuals’ exact identities.
+
+A result of web tracking is that different people may have very different experiences on the web based
+on how sites personalize content and advertising to their profiles. While occasionally convenient
+(e.g. some personalized ads), this type of personalization can also cause and perpetuate biases or
+create “content bubbles.”
+
+For example, real estate sites may choose to display ads only to individuals who are inferred to be
+from majority groups, online loan quotes may be cheaper for people inferred to be wealthy and
+at lower risk of default, and articles about fringe theories may be more prominently displayed to
+individuals who are already primed for conspiracies.
+
+One goal of Internet privacy researchers is to measure the prevalence of web trackers and identify
+especially egregious third-party tracking domains. In this assignment, you will perform these
+measurement tasks to discover the scale of cookie-based web tracking.
