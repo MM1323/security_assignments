@@ -1,7 +1,7 @@
 COSC 311 Assignment #4: Web Tracking
 
 
-NAMES: [Full Names of both partners]
+NAMES: Mia McDuffie
 
 _______________________________________________________________________________________________
 
@@ -10,7 +10,10 @@ Although you used a new browser for this assignment, does that completely preven
 associating your browsing activity in the assignment from your normal everyday browsing? 
 Justify your answer with technical details.
 
-[Your answer here]
+No, it does not. This is mainly due to Deterministic CDT and Probabilistic CDT. For example,
+when a user signs into a website on a different devise, they are the same userID which that website 
+uses when sending a cookie back to its self to know that the user visited that site regardless 
+what device they are using. 
 
 _______________________________________________________________________________________________
 
@@ -71,7 +74,7 @@ ________________________________________________________________________________
 Question #8 (ungraded)
 How did you divide the work between partners? (Put N/A if worked alone)
 
-[Your answer here]
+N/A
 
 ______________________________________________________________________________________
 
@@ -82,6 +85,10 @@ https://benalexkeen.com/bar-charts-in-matplotlib/
 https://www.w3schools.com/python/numpy/numpy_random.asp
 https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tolist.html
 https://www.geeksforgeeks.org/read-json-file-using-python/
+https://stackabuse.com/rotate-axis-labels-in-matplotlib/
+https://www.geeksforgeeks.org/draw-a-horizontal-bar-chart-with-matplotlib/
+https://www.educative.io/edpresso/how-to-plot-graphs-using-json-files-in-python
+https://stackoverflow.com/questions/41063744/how-to-update-the-value-of-a-key-in-a-dictionary-in-python
 
 ______________________________________________________________________________________
 
