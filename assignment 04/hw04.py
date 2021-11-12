@@ -2,27 +2,41 @@ import json
 import matplotlib.pyplot as plt
 from numpy import random
 import matplotlib.ticker as mticker
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def createThirdPartyPlots(values):
     # Creates the plot of all third party cookies
-    # Get all x and y values
-    xAxis = [key for key, value in values.items()]
-    yAxis = [value for key, value in values.items()]
+    fig = plt.figure(figsize=(100, 20))
+    State = [key for key, value in values.items()]
+    growth = [value for key, value in values.items()]
 
-    ## Bar Vertical Graph ##
-    plt.bar(xAxis, yAxis, color='maroon')
-    # plt.barh(xAxis, yAxis, color='maroon') DELETE LATER
-    # plt.xticks(rotation=90) #rotate till sidways
-    plt.xlabel('Domain')
-    plt.ylabel('Number of Cookies')
-    plt.title("Third Party Cookies")
+
+    # Create a pandas dataframe
+    df = pd.DataFrame({"Domain": State,
+                    "Number of Cookies": growth})
+
+
+    # sort dataframe
+    df.sort_values('Number of Cookies')
+
+
+    # make barplot and sort bars
+    sns.barplot(x='Domain',
+                y="Number of Cookies", data=df,
+                order=df.sort_values('Number of Cookies').Domain)
+
+    # Format the x-axis
+    fig.autofmt_xdate()
 
     # Save Image
     plt.savefig('thirdparty.png')
 
     # Show the Graph
-    plt.show() 
+    # plt.show() 
 
 
 def getThirdPartyPlots():
@@ -53,15 +67,22 @@ def getThirdPartyPlots():
 
 def createCookiesPlot(values):
     # Creates the plot of all cookies visited
-    xAxis = [key for key, value in values.items()]
-    yAxis = [value for key, value in values.items()]
+    State = [key for key, value in values.items()]
+    growth = [value for key, value in values.items()]
 
-    ## Bar Horizontal Graph ##
-    fig = plt.figure()
-    plt.barh(xAxis, yAxis, color='maroon')
-    plt.xlabel('Number of Cookies')
-    plt.ylabel('Domain')
-    plt.title("First Party Cookies")
+    # Create a pandas dataframe
+    df = pd.DataFrame({"Domain": State,
+                    "Number of Cookies": growth})
+
+
+    # sort dataframe
+    df.sort_values('Number of Cookies')
+
+
+    # make barplot and sort bars
+    sns.barplot(x='Domain',
+                y="Number of Cookies", data=df,
+                order=df.sort_values('Number of Cookies').Domain)
     
     # Save the graph
     plt.savefig('firstparty.png')
@@ -108,24 +129,6 @@ def getAllDomains():
     return websites
 
 
-def createPlot(websites, values):
-    # Basic Plot Creation
-    # Actual plot creation
-    plt.style.use('ggplot')
-
-    x_pos = [i for i, _ in enumerate(websites)]
-    plt.bar(x_pos, values, color='green')
-
-    plt.xlabel("Domain")
-    plt.ylabel("Number of Cookies")
-    plt.title("First Party Cookies")
-    plt.xticks(x_pos, websites)
-
-    # Save the plot
-    plt.savefig('test.png')
-    # plt.show()
-
-
 def main():
     # Getting all the domains visited
     websites = getAllDomains()
@@ -138,8 +141,5 @@ def main():
     thirdPartyValues = getThirdPartyPlots()
     createThirdPartyPlots(thirdPartyValues)
 
-    # createPlot(websites, values) Old Way
-
-
-
+    
 main()

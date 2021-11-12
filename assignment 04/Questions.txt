@@ -10,40 +10,51 @@ Although you used a new browser for this assignment, does that completely preven
 associating your browsing activity in the assignment from your normal everyday browsing? 
 Justify your answer with technical details.
 
-No, it does not. This is mainly due to Deterministic CDT and Probabilistic CDT. For example,
-when a user signs into a website on a different devise, they are the same userID which that website 
-uses when sending a cookie back to its self to know that the user visited that site regardless 
-what device they are using. 
+No, it does not. It is mainly due to Deterministic CDT and Probabilistic CDT. For example, when a 
+user signs in to a website on a different device, they are given the same userID and a cookie. Then 
+that userID and cookie are sent back to itself to know that a specific user visited that site regardless 
+of what device they are using.
+
+Also, other identifying information like a user's email and password can be connected through data 
+aggregators. These data aggregators merge the data of the same user from different websites. 
+
+Additionally, machine learning models can determine if it's the same user on different devices by making 
+a model for a particular user when logged in on one device and then checking if that model applies to 
+another user on a different device. If it's the same, then they know it's the same user.
 
 _______________________________________________________________________________________________
 
 Question #2 
 How many different domains did you visit while browsing?
 
-[Your answer here]
+23
 
 _______________________________________________________________________________________________
 
 Question #3
 How many total cookies did you collect?
 
-FIRST-party: [Your answer here]
+FIRST-party: 17
 
-THIRD-party: [Your answer here]
+THIRD-party: 1209
 
 _______________________________________________________________________________________________
 
 Question #4
 What 3 domains were responsible for the most FIRST-party cookies you collected?
 
-[Your answer here]
+jisho.org
+sallysbakingaddiction.com
+abc7ny.com
 
 ________________________________________________________________________________________________
 
 Question #5
 What 3 domains were responsible for the most THIRD-party cookies you collected?
 
-[Your answer here]
+.cnn.com
+.go.sonobi.com
+.tremorhub.com
 
 ________________________________________________________________________________________________
 
@@ -51,7 +62,10 @@ Question #6
 Just from looking at the domains of the cookies you collected, what do 
 you think a tracking company could learn about your demographics and/or interests?
 
-[Your answer here]
+I think they have learned a lot because there were so many third-party cookies made and used 
+within a relatively short time. When looking at the cookies, they probably think I am highly 
+interested in sports, the markets, cooking, and the news since the cookies for these websites 
+were the highest.
 
 ________________________________________________________________________________________________
 
@@ -59,15 +73,21 @@ Question #7
 Find someone else (individual or partners) working on this assignment and compare the number 
 and domains of the first- and third-party cookies you collected. Complete the following:
 
-Who did you discuss with: [Your answer here]
+Who did you discuss with: Tommy Wood
 
-How many first-party cookies did they collect? [Your answer here]
-How many third-party cookies did they collect? [Your answer here]
+How many first-party cookies did they collect? 151
+How many third-party cookies did they collect? 46
 
 How would you explain the differences and/or similarities in the number and domains of cookies 
 you collected based on a comparison of your browsing activities?
 
-[Your answer here]
+I think they are different for multiple reasons. For the majority of the first-party cookies, 
+the hostname was under www.name.com rather than just name.com. I think this lead to a blind spot in how many first-party 
+cookies I have. When changing all of the domain names to www.name.com, the number of first-party cookies was about the same 
+as Tommy's. I think the majority of the domains I visited don't show up as just name.com because they are relatively old websites 
+where the standard of having  www.name.com was more common. I think I have way more third-party cookies because the websites that 
+I visited don't generate monetary value by themselves. Instead, the majority of them are websites where users just read the content. 
+So to compensate, they create a lot of cookies.  
 
 _________________________________________________________________________________________________
 
@@ -89,10 +109,12 @@ https://stackabuse.com/rotate-axis-labels-in-matplotlib/
 https://www.geeksforgeeks.org/draw-a-horizontal-bar-chart-with-matplotlib/
 https://www.educative.io/edpresso/how-to-plot-graphs-using-json-files-in-python
 https://stackoverflow.com/questions/41063744/how-to-update-the-value-of-a-key-in-a-dictionary-in-python
+https://www.geeksforgeeks.org/seaborn-sort-bars-in-barplot/
+https://stackoverflow.com/questions/48062499/matplotlib-y-axis-values-are-not-ordered
 
 ______________________________________________________________________________________
 
 Question #10 (optional, ungraded) 
 Do you have any suggestions for improving this assignment in the future?
 
-[Your answer here]
+Nothing, it was a fun project to do.
