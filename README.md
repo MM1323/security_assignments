@@ -67,3 +67,19 @@ individuals who are already primed for conspiracies.
 One goal of Internet privacy researchers is to measure the prevalence of web trackers and identify
 especially egregious third-party tracking domains. In this assignment, you will perform these
 measurement tasks to discover the scale of cookie-based web tracking.
+
+## Assignment 5: Anonymization ##
+
+The release of publicly available datasets is essential for public health, public policymaking,
+transparent governance, and collaborative research & development. However, public datasets often
+contain sensitive attributes that could cause harm if they are deanonymized to reveal the identity of
+the individuals they describe.
+
+Public datasets are often prone to deanonymization by linking multiple datasets and background
+knowledge on attributes known as quasi-identifiers (QI). Naïve anonymization techniques, such as
+removing names or addresses, do not account for the breadth of possible quasi-identifiers and remain
+vulnerable to deanonymization. Fortunately, computer scientists have developed anonymization
+algorithms that provide stronger theoretical guarantees.
+
+In this assignment, you will gain experience with the k-anonymity, l-diversity, and t-closeness
+algorithms on a public dataset.
