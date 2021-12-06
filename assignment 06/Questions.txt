@@ -1,0 +1,59 @@
+COSC 311 Assignment #6: Usable Privacy
+
+
+NAMES: [Full Names of both partners]
+
+_______________________________________________________________________________________________
+
+Question #1
+Since this is a homework assignment and not a research project, we are skipping several important 
+considerations that would be essential for a real user study. List three modifications that would
+need to be made to the experimental method in Part 2 to make it a properly controlled study. 
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #2
+Provide a caption for your figure with the data from Part 1. 
+
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #3
+Provide a caption for your figure with the data from Part 2. 
+
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #4
+Choose one takeaway from the data and figures. Describe its implications for software developers
+and designers attempting to balance privacy customization options and user-friendliness.
+
+
+[Your answer here]
+
+________________________________________________________________________________________________
+
+Question #5 (ungraded)
+How did you divide the work between partners? (Put N/A if worked alone)
+
+[Your answer here]
+
+______________________________________________________________________________________
+
+Question #6 (optional, ungraded)
+Did you use code snippets from anywhere online that you need to cite?
+
+[Your answer here]
+
+______________________________________________________________________________________
+
+Question #7 (optional, ungraded) 
+Do you have any suggestions for improving this assignment in the future?
+
+[Your answer here]

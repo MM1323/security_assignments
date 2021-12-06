@@ -60,7 +60,9 @@ ________________________________________________________________________________
 Question #7 (optional, ungraded)
 Did you use code snippets from anywhere online that you need to cite?
 
-https://www.geeksforgeeks.org/delete-a-csv-column-in-python/    
+https://www.geeksforgeeks.org/delete-a-csv-column-in-python/  
+https://stackoverflow.com/questions/31511997/pandas-dataframe-replace-all-values-in-a-column-based-on-condition  
+https://pythonexamples.org/pandas-dataframe-replace-values-in-column-based-on-condition/
 
 ______________________________________________________________________________________
 
