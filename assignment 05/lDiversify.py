@@ -2,25 +2,34 @@ import pandas as pd
 import numpy as np
 from io import StringIO
 import os
-
-data = pd.read_csv('CensusDataMini.csv')
-
-# print(data)
-
-# df.columns is zero-based pd.Index
-# df = df.drop(df.columns[[0, 1, 3]], axis=1)
-
-# Drops the first column
-# data.drop(data.columns[[0]], axis=1, inplace=True)
-
-# There are 16 unique values
-# Think about doing it in ranges instead of handeling it by each case'
-# Doing it in groups of 4, so (4, 8, 12, 16)
-# We could k anaomize each of the groups and and will ganrantee the l diversity for each group 
+import sys
 
 
-group = data.groupby(['Race'])
+def main():
+    print("Hello")
 
-print(group.size())
+    data = "placeholder"
+    l = 3 # place holder
+    if (len(sys.argv) == 3):
+        l = int(sys.argv[2])
+        data = pd.read_csv(sys.argv[1])
+    else:
+        data = pd.read_csv('kCensusData.csv')
 
-data.to_csv("lCensusData.csv", index=False, encoding='utf8')
+
+
+
+
+
+
+
+
+
+
+
+
+def saveData(data):
+    data.to_csv("lCensusData.csv", index=False, encoding='utf8')
+
+if __name__ == "__main__":
+    main()
