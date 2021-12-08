@@ -1,29 +1,39 @@
 COSC 311 Assignment #6: Usable Privacy
 
 
-NAMES: [Full Names of both partners]
+NAMES: Mia McDuffie
 
 _______________________________________________________________________________________________
 
 Question #1
-Since this is a homework assignment and not a research project, we are skipping several important 
+Since this is a homework assignment and not a research project, we are skipping several important
 considerations that would be essential for a real user study. List three modifications that would
-need to be made to the experimental method in Part 2 to make it a properly controlled study. 
+need to be made to the experimental method in Part 2 to make it a properly controlled study.
 
-[Your answer here]
+First, instead of letting each person do there own timing with someone they know we would
+get random people to do the timing. This test would include using the same timer
+and phone to get there time.
+
+Second, we would would use the same phone/computer and timer to get the time for both the expert and
+typical user. Doing this would eliminate the variablity in speed due to the devices being different.
+
+Finally, we would limit the OS and browers tested. Additionally, we would test the same amount of
+people for each device we pick. We would do this to make the data collected very clear and
+concise.
 
 ________________________________________________________________________________________________
 
 Question #2
-Provide a caption for your figure with the data from Part 1. 
+Provide a caption for your figure with the data from Part 1.
 
 
-[Your answer here]
+This figure displayes the number of interactions for turning off the GPS location services and
+delete & disable third-party cookies based on the OS and the brower used for it.
 
 ________________________________________________________________________________________________
 
 Question #3
-Provide a caption for your figure with the data from Part 2. 
+Provide a caption for your figure with the data from Part 2.
 
 
 [Your answer here]
@@ -35,25 +45,25 @@ Choose one takeaway from the data and figures. Describe its implications for sof
 and designers attempting to balance privacy customization options and user-friendliness.
 
 
-[Your answer here]
+From both figures, for both iOS and android. 
 
 ________________________________________________________________________________________________
 
 Question #5 (ungraded)
 How did you divide the work between partners? (Put N/A if worked alone)
 
-[Your answer here]
+Alllllllll by myself~~~ : >
 
 ______________________________________________________________________________________
 
 Question #6 (optional, ungraded)
 Did you use code snippets from anywhere online that you need to cite?
 
-[Your answer here]
+N/A
 
 ______________________________________________________________________________________
 
-Question #7 (optional, ungraded) 
+Question #7 (optional, ungraded)
 Do you have any suggestions for improving this assignment in the future?
 
-[Your answer here]
+I would have liked to see what the original longer project was supposed to be.
