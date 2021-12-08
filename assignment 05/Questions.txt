@@ -1,7 +1,7 @@
 COSC 311 Assignment #5: Anonymization
 
 
-NAMES: [Full Names of both partners]
+NAMES: Brian Weber and Mia McDuffie
 
 ______________________________________________________________________________________
 
@@ -9,7 +9,12 @@ Question #1
 The CensusData.csv file was released without k-anonymization or l-diversification. 
 Do you think this was an OK decision from a privacy perspective? Why or why not?
 
-[Your answer here]
+No, this decision is not okay. First, from this data set you could pin point a 
+single person since there are some datapoints which are unique from all of the data 
+points in the data. Additionally, you could also combine this dataset and another
+one to pin point a specific person and get more data about them. In general,
+released without k-anonymization or l-diversificatio data reveals a lot of data on a
+many different people.
 
 ______________________________________________________________________________________
 
@@ -17,7 +22,14 @@ Question #2
 How did you attempt to limit the amount of imprecision introduced by your 
 k-anonymization algorithm?
 
-[Your answer here]
+One way we attempted to limit the amount of imprecision introduced was to move through
+the dataframe containing groups smaller than k (data2) in subGroups of size k. Since 
+the data that was contained in data2 was already sorted prior to being entered into data2,
+iloc-ing data2 into subGroups of size k typically grouped rows with a large number of
+similarities. This meant that when we modified the values in these subGroups (lines 82 to
+87), we typically didn't have to change the values of all of the categories. 
+
+
 
 ______________________________________________________________________________________
 
@@ -26,7 +38,16 @@ How does the runtime of your k-anonymize.py scale with argument k
 (in big-O notation)? To test this, examine the structure of your code and/or time 
 the script for increasing values of k.
 
-[Your answer here]
+The runtime of k-anonymize.py scales inversely with k. More specifically, as k gets larger,
+the runtime gets shorter. However, in terms of big-o notation, k has no impact of the runtime
+of k-anonymize.py which will always be O(n), with "n" referring to the size of CensusData.csv. 
+This is a result of the subGroups described in question 2. Since the size of the subGroups and
+by extension, the amount of times the for-loop beginning on line 81 is going to run is dependent
+on the size of k, a larger k value results in less loops. However, this won't affect big-O runtime
+given that this code will always use at least 2 full for-loops of the data in CensusData.csv and 
+in the worst case, will use 3 for-loops (O(3n) ≈ O(2n) ≈ O(n)). Taken to the extreme, a k value of 
+32561 will result in a big-o runtime of O(n).
+
 
 ______________________________________________________________________________________
 
@@ -36,7 +57,16 @@ How does the runtime of your k-anonymize.py algorithm scale with the number of r
 in the dataset (in big-O notation)? To test this, examine the structure of your
 code and/or time the script when run on increasingly larger slices of CensusData.csv
 
-[Your answer here]
+As the number of rows increases, the runtime of our algorithm scales linearly. This is 
+because it iterate through the all of the rows and group them by k if they are not 
+k anonymized. If there are more rows, then we would group more rows of size k in order
+to k-anonymize the data set.
+
+Similarly, if the number of rows decreases, then the runtime would scales linearly downward.
+This is because less rows in the data set would have to be grouped by k. 
+
+Therefore, it would still remain O(n) because of the properties above above where when the
+amount of rows increase or decrease, it would scale linearly.
 
 ______________________________________________________________________________________
 
@@ -45,7 +75,11 @@ Question #5
 What do you think is the lowest value of L (for ldiversify.py) that provides 
 sufficient privacy for the sensitive EducationNum attribute? Why? 
 
-[Your answer here]
+The lowest L value we think provides sufficient enough privacy is the k value of the 
+given dataset. For a given group it would allow for enough diversity proportional to the k value. 
+This is because it would allow for a subGroup of data to be at least k Diverse and with k diversity
+to the sensitive attribute. This would allow for enough of the data to not to be changed and be 
+overall usable and while also being private enough with enough given sensitive attributes. 
 
 ______________________________________________________________________________________
 
@@ -53,20 +87,20 @@ ________________________________________________________________________________
 Question #6 (ungraded)
 How did you divide the work between partners? (Put N/A if worked alone)
 
-[Your answer here]
+While we worked together when we could, we both worked on our own if our schedules made
+it so we couldn't meet up. Additionally, we split the questions for this text file evenly
+but we discussed the questions together as we were writing them. 
 
 ______________________________________________________________________________________
 
 Question #7 (optional, ungraded)
 Did you use code snippets from anywhere online that you need to cite?
 
-https://www.geeksforgeeks.org/delete-a-csv-column-in-python/  
-https://stackoverflow.com/questions/31511997/pandas-dataframe-replace-all-values-in-a-column-based-on-condition  
-https://pythonexamples.org/pandas-dataframe-replace-values-in-column-based-on-condition/
+[Your answer here]
 
 ______________________________________________________________________________________
 
 Question #8 (optional, ungraded) 
 Do you have any suggestions for improving this assignment in the future?
 
-[Your answer here]
+Offer some more resources to explain key aspects of Pandas
