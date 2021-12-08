@@ -83,3 +83,21 @@ algorithms that provide stronger theoretical guarantees.
 
 In this assignment, you will gain experience with the k-anonymity, l-diversity, and t-closeness
 algorithms on a public dataset.
+
+## Assignment 6: Usable Privacy ##
+
+Modern operating systems and software applications designed for consumer use often have a range
+of customization options including extensive privacy settings. These settings ostensibly allow users
+to tune their preferred tradeoff between privacy and functionality, such as by turning off voice
+assistants or browsing in “incognito mode.”
+
+However, the complexity of customization options and the sheer number of possible settings can
+discourage users without sufficient time or technological expertise from effecting privacy behaviors
+that match their real preferences. Additionally, the range of user interfaces across devices and
+platforms challenges even experts who wish to alter default privacy options.
+
+The field of usable privacy studies how users interact with and understand privacy features of
+computer technologies. In this assignment, you will conduct a small usable privacy experiment to
+measure the difficulty of adjusting privacy settings on different platforms. You will contribute your
+data to a shared class dataset and generate summary figures of the type that could be included in an
+academic publication.
