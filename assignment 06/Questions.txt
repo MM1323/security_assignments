@@ -25,19 +25,19 @@ ________________________________________________________________________________
 Question #2
 Provide a caption for your figure with the data from Part 1.
 
-This figure displayes the number of interactions for turning off the GPS location services and
+This figure displayes the average number of interactions for turning off the GPS location services and
 delete/disable third-party cookies based on the OS and the brower used. Out of all of the iOS
-brower combinations, iOS + Chrome took the most interactions to complete both tasks.
+brower combinations, iOS + Firefox took the most interactions to complete both tasks.
 
 ________________________________________________________________________________________________
 
 Question #3
 Provide a caption for your figure with the data from Part 2.
 
-This figure displayes the time difference between a typical and a expert user on adjusting
+This figure displayes the average time difference between a typical and a expert user on adjusting
 privacy settings on different OSs and browers. Out of all of the iOS brower combinations,
 Android + Chrome took the longest for typical users to adjust privacy settings. Additionally,
-iOS + Chrome took the longest for expert users to adjust privacy settings.
+iOS/Android + Chrome took the longest for expert users to adjust privacy settings.
 
 ________________________________________________________________________________________________
 
@@ -46,7 +46,7 @@ Choose one takeaway from the data and figures. Describe its implications for sof
 and designers attempting to balance privacy customization options and user-friendliness.
 
 
-Based on both figures, Chrome took the most the most time and interactions in order to change
+Based on both figures, Chrome consistently took alot of time and interactions in order to change
 privacy settings on both iOS and Android. This suggests that the Chrome design is not
 very user-friendly and should not be followed as a good example for software developers
 and designers. However, not following Chrome design could negatively impact software developers
