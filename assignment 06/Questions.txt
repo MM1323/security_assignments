@@ -10,9 +10,8 @@ Since this is a homework assignment and not a research project, we are skipping 
 considerations that would be essential for a real user study. List three modifications that would
 need to be made to the experimental method in Part 2 to make it a properly controlled study.
 
-First, instead of letting each person do there own timing with someone they know we would
-get random people to do the timing. This test would include using the same timer
-and phone to get there time.
+First, instead of letting each person do there own timing with someone they know, we would
+get random people to do the timing.
 
 Second, we would would use the same phone/computer and timer to get the time for both the expert and
 typical user. Doing this would eliminate the variablity in speed due to the devices being different.
@@ -26,17 +25,19 @@ ________________________________________________________________________________
 Question #2
 Provide a caption for your figure with the data from Part 1.
 
-
 This figure displayes the number of interactions for turning off the GPS location services and
-delete & disable third-party cookies based on the OS and the brower used for it.
+delete/disable third-party cookies based on the OS and the brower used. Out of all of the iOS
+brower combinations, iOS + Chrome took the most interactions to complete both tasks.
 
 ________________________________________________________________________________________________
 
 Question #3
 Provide a caption for your figure with the data from Part 2.
 
-
-[Your answer here]
+This figure displayes the time difference between a typical and a expert user on adjusting
+privacy settings on different OSs and browers. Out of all of the iOS brower combinations,
+Android + Chrome took the longest for typical users to adjust privacy settings. Additionally,
+iOS + Chrome took the longest for expert users to adjust privacy settings.
 
 ________________________________________________________________________________________________
 
@@ -45,7 +46,12 @@ Choose one takeaway from the data and figures. Describe its implications for sof
 and designers attempting to balance privacy customization options and user-friendliness.
 
 
-From both figures, for both iOS and android. 
+Based on both figures, Chrome took the most the most time and interactions in order to change
+privacy settings on both iOS and Android. This suggests that the Chrome design is not
+very user-friendly and should not be followed as a good example for software developers
+and designers. However, not following Chrome design could negatively impact software developers
+and designers since it seems to be very popular among both iOS and Android users based on
+that data collected.
 
 ________________________________________________________________________________________________
 
